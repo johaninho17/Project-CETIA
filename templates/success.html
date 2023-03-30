@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <link rel="stylesheet" href={{url_for('static' , filename = 'css/normalize.css')}}>
+        <link rel="stylesheet" href={{url_for('static' , filename = 'css/grid.css')}}>
+        <link rel='stylesheet' href={{url_for('static' , filename = 'css/styleSucc.css')}}> -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <!-- <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet" type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+        <title>Results Page</title>
+
+        <style>
+            table, th, td {
+              border: 1px solid black;
+              border-collapse: collapse;
+            }
+            th, td {
+              padding: 5px;
+              text-align: center;
+            }
+            </style>
+    </head>
+    <a href="/">
+        <header class="w3-container w3-center w3-padding-10 w3-white">
+            <row margin="10px">
+                <img src="static/css/cetialogo.jpg" alt="Fashion Blog" width="15%" height="15%">
+                <img src="static/css/estia.png" alt="Fashion Blog" width="15%" height="15%" >
+            </row>
+        </header>
+        </a>
+    <body>
+        <div class = "second-main" style = "height: 100% ; width : 100%;">
+            <nav>
+                <button class="w3-black w3-button w3-padding-large" margin="10px"><a href ="/">Predict another image</a></button>
+            </nav>
+            <div class = "header">
+                <row style = "width: 100% ; display: flex; justify-content: center;">
+                    <h3 class="header-text">Uploaded Image</h3>
+                </row>
+                <row style = "width: 100% ; display: flex; justify-content: center;">
+                    <h4 class="header-text">{{img}}</h4>
+                </row>
+                <row style = "width: 100% ; display: flex; justify-content: center;">
+                    <img width="400" height="350" class = "result-img" src={{url_for('static', filename = 'images/'+ img)}}>
+                </row>
+            </div>
+
+            <div class = "info">
+                <row style = "width: 100% ; display: flex; justify-content: center;">
+                    <h3 class = "header-text">Model Prediction</h3>
+                </row>
+                <row style = "width: 100%; display: flex; justify-content: center;">
+                    <table class="table-bordered text-light table-custom">
+                        <tr>
+                            <th>Class</th>                            
+                            <td>Collar</td>
+                            <!-- <td>Epaulette</td> -->
+                            <td>Hood</td>
+                            <!-- <td>Lapel</td> -->
+                            <td>Neckline</td>
+                            <td>Pocket</td>
+                            <td>Sleeve</td>
+                        </tr>
+                        <tr>                            
+                            <th>Prediction</th>
+                            <td>{{ predictions.prob1 }}</td>                            
+                            <!-- <td>{{ predictions.prob2 }}</td> -->
+                            <td>{{ predictions.prob3 }}</td>
+                            <!-- <td>{{ predictions.prob4 }}</td> -->
+                            <td>{{ predictions.prob5 }}</td>                                                         
+                            <td>{{ predictions.prob6 }}</td>
+                            <td>{{ predictions.prob7 }}</td>
+                        </tr>
+                    </table>
+                </row>
+            </div>
+        </div>
+    </body>
+</html>
